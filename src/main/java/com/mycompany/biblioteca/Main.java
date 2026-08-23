@@ -94,5 +94,24 @@ public class Main {
         System.out.println("Libro creado con exito.");
     }
     
+    static void listBooks() {
+        if (books.isEmpty()) {
+            System.out.println("No hay libros registrados.");
+            return;
+        }
+        for (Book b : books) {
+            System.out.println(b);
+        }
+    }
+ 
+    static Book findBookByCode(String code) {
+        for (Book b : books) {
+            if (b.getCode().equals(code)) {
+                return b;
+            }
+        }
+        return null;
+    }
+    
 
  
