@@ -35,3 +35,18 @@ public class Main {
     }
     
 
+   static Client findClientById(String id) {
+        for (Client c : clients) {
+            if (c.getId().equals(id)) {
+                return c;
+            }
+        }
+        return null;
+    }
+ 
+    static void searchClient() {
+        System.out.print("Id del cliente a buscar: ");
+        String id = sc.nextLine();
+        Client c = findClientById(id);
+        System.out.println(c != null ? c : "Cliente no encontrado.");
+    }
