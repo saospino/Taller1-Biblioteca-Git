@@ -139,5 +139,16 @@ public class Main {
         System.out.println("Libro actualizado.");
     }
     
+        System.out.print("Codigo del libro a eliminar: ");
+        String code = sc.nextLine();
+        Book b = findBookByCode(code);
+        if (b == null) {
+            System.out.println("Libro no encontrado.");
+            return;
+        }
+        books.remove(b);
+        System.out.println("Libro eliminado.");
+    }
+ 
 
  
