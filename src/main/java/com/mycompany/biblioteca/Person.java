@@ -1,4 +1,3 @@
-
 package com.mycompany.biblioteca;
 
 public class Person {
