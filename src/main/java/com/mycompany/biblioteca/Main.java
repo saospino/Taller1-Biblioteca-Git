@@ -50,3 +50,33 @@ public class Main {
         Client c = findClientById(id);
         System.out.println(c != null ? c : "Cliente no encontrado.");
     }
+    
+    static void updateClient() {
+        System.out.print("Id del cliente a actualizar: ");
+        String id = sc.nextLine();
+        Client c = findClientById(id);
+        if (c == null) {
+            System.out.println("Cliente no encontrado.");
+            return;
+        }
+        System.out.print("Nuevo nombre (" + c.getName() + "): ");
+        c.setName(sc.nextLine());
+        System.out.print("Nuevo telefono (" + c.getPhone() + "): ");
+        c.setPhone(sc.nextLine());
+        System.out.print("Nuevo email (" + c.getEmail() + "): ");
+        c.setEmail(sc.nextLine());
+        System.out.println("Cliente actualizado.");
+    }
+    
+    static void deleteClient() {
+        System.out.print("Id del cliente a eliminar: ");
+        String id = sc.nextLine();
+        Client c = findClientById(id);
+        if (c == null) {
+            System.out.println("Cliente no encontrado.");
+            return;
+        }
+        clients.remove(c);
+        System.out.println("Cliente eliminado.");
+    }
+ 
