@@ -115,4 +115,29 @@ public class Main {
     
 
 
+    static void searchBook() {
+        System.out.print("Codigo del libro a buscar: ");
+        String code = sc.nextLine();
+        Book b = findBookByCode(code);
+        System.out.println(b != null ? b : "Libro no encontrado.");
+    }
+ 
+    static void updateBook() {
+        System.out.print("Codigo del libro a actualizar: ");
+        String code = sc.nextLine();
+        Book b = findBookByCode(code);
+        if (b == null) {
+            System.out.println("Libro no encontrado.");
+            return;
+        }
+        System.out.print("Nuevo titulo (" + b.getTitle() + "): ");
+        b.setTitle(sc.nextLine());
+        System.out.print("Nuevo autor (" + b.getAuthor() + "): ");
+        b.setAuthor(sc.nextLine());
+        System.out.print("Nuevo anio (" + b.getPublicationYear() + "): ");
+        b.setPublicationYear(sc.nextLine());
+        System.out.println("Libro actualizado.");
+    }
+    
+
  
