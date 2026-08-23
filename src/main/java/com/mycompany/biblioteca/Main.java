@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class Main {
  static ArrayList<Cliente> clientes = new ArrayList<>();
  static ArrayList<Book> books = new ArrayList<>();
+ static ArrayList<Loan> loans = new ArrayList<>();
+
  static Scanner sc = new Scanner(System.in);
  
  public static void main(String[] args) {
@@ -150,5 +152,34 @@ public class Main {
         System.out.println("Libro eliminado.");
     }
  
-
+    static void registerLoan() {
+        System.out.print("Id del cliente: ");
+        String clientId = sc.nextLine();
+        Client client = findClientById(clientId);
+        if (client == null) {
+            System.out.println("Cliente no encontrado.");
+            return;
+        }
+ 
+        System.out.print("Codigo del libro: ");
+        String bookCode = sc.nextLine();
+        Book book = findBookByCode(bookCode);
+        if (book == null) {
+            System.out.println("Libro no encontrado.");
+            return;
+        }
+        if (!book.isAvailable()) {
+            System.out.println("El libro no esta disponible.");
+            return;
+        }
+ 
+        System.out.print("Id del prestamo: ");
+        String loanId = sc.nextLine();
+ 
+        Loan loan = new Loan(loanId, client, book, LocalDate.now());
+        book.setAvailable(false);
+        loans.add(loan);
+        System.out.println("Prestamo registrado con exito.");
+    }
+ 
  
