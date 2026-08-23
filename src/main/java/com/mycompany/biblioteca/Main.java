@@ -202,4 +202,19 @@ public class Main {
         loan.getBook().setAvailable(true);
         System.out.println("Devolucion registrada con exito.");
     }
+
+    static void listActiveLoans() {
+        boolean found = false;
+        for (Loan l : loans) {
+            if (l.getStatus().equals("ACTIVO")) {
+                System.out.println(l);
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No hay prestamos activos.");
+        }
+    }
+}
+ 
  
