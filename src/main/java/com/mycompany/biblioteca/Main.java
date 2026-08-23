@@ -181,5 +181,25 @@ public class Main {
         loans.add(loan);
         System.out.println("Prestamo registrado con exito.");
     }
+     static Loan findActiveLoan(String loanId) {
+        for (Loan l : loans) {
+            if (l.getLoanId().equals(loanId) && l.getStatus().equals("ACTIVO")) {
+                return l;
+            }
+        }
+        return null;
+    }
  
+    static void returnLoan() {
+        System.out.print("Id del prestamo a devolver: ");
+        String loanId = sc.nextLine();
+        Loan loan = findActiveLoan(loanId);
+        if (loan == null) {
+            System.out.println("No existe un prestamo activo con ese id.");
+            return;
+        }
+        loan.setStatus("DEVUELTO");
+        loan.getBook().setAvailable(true);
+        System.out.println("Devolucion registrada con exito.");
+    }
  
